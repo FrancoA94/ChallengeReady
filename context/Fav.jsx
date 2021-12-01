@@ -3,10 +3,10 @@ import { createContext, useState } from "react";
 export const cartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [listFav, setListFav] = useState([ ])
+  const [listFav, setListFav] = useState([])
 
-  localStorage.setItem('listFav', JSON.stringify(listFav))
-  var guardado = JSON.parse(localStorage.getItem('listFav'))
+  // localStorage.setItem('listFav', JSON.stringify(listFav))
+  // var guardado = JSON.parse(localStorage.getItem('listFav'))
 
   // const setLocalStorage = value => {
   //   try {

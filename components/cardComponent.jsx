@@ -8,8 +8,8 @@ const CardComponent = ({ characters, HandlerFavorite }) => {
   return (
     <a className={"card"}>
       <img src={characters.image} style={{ width: "100%" }} />
-      <Link href="/detail">
-        <a>Más detalles</a>
+      <Link href="/detail/[id]" as={`/detail/${characters.id}`}>
+        <a>Mas detalles</a>
       </Link>
       <h2>{characters.name}</h2>
       <p>{characters.species}</p>
