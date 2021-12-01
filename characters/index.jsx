@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
 import CardComponent from "../components/cardComponent";
 import { GET_CHARACTERS } from "./querys";
@@ -19,11 +19,12 @@ const CharacterQuery = () => {
     setKeyword(evt.target.value);
   };
 
-  const { loading, error, data } = useQuery(GET_CHARACTERS(page, keyword));
+  const { loading, error, data } = useQuery(
+    GET_CHARACTERS(page, keyword.length > 2 ? keyword : "")
+  );
 
   const handlerNextPage = () => setPage(data.characters.info.next);
   const handlerPrevPage = () => setPage(data.characters.info.prev);
-
   if (loading) return <p>Loading</p>;
   if (error) return <p>Error</p>;
   console.log("Lista", listFav);

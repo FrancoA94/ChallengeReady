@@ -3,18 +3,20 @@ import { createContext, useState } from "react";
 export const cartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [listFav, setListFav] = useState([]
-    // localStorage.getItem('listFav')
-  );
+  const [listFav, setListFav] = useState([ ])
 
-  const setLocalStorage = value => {
-    try {
-      setListFav(value);
-      window.localStorage.setItem("listFav", value);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  localStorage.setItem('listFav', JSON.stringify(listFav))
+  var guardado = JSON.parse(localStorage.getItem('listFav'))
+
+  // const setLocalStorage = value => {
+  //   try {
+  //     setListFav(value);
+  //     window.localStorage.setItem("listFav", JSON.stringify(value));
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+
 
   const HandlerFavorite = (id) => {
     if (listFav.includes(id)) {
