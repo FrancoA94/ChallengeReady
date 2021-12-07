@@ -1,10 +1,10 @@
 const DetailComponent = ({characters}) => {
     return (
       <a className={"card"}>
-        <img src={characters.image} style={{ width: "10%" }} />
         <h2>{characters.name}</h2>
-        <h3>{characters.status}</h3>
-        <h4>{characters.gender}</h4>
+        <img src={characters.image} style={{ width: "30%" }} />
+        <h3>Status: {characters.status}</h3>
+        <h4>Gender: {characters.gender}</h4>
       </a>
     );
   };

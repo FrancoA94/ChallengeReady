@@ -51,6 +51,7 @@ const CharacterQuery = () => {
           </div>
         </main>
       </div>
+      <h1>Page {page}</h1>
       <button onClick={handlerPrevPage}>Previous</button>
       <button onClick={handlerNextPage}>Next Page</button>
     </div>
