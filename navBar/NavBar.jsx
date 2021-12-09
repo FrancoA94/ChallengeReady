@@ -35,7 +35,6 @@ const NavBar = () => {
 };
 
 const Checkbox = ({ label, value, onChange, checked }) => {
-  console.log(value, checked);
   return (
     <label>
       <input

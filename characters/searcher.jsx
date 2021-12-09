@@ -1,8 +1,8 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { cartContext } from "../context/Fav";
 
 const Searcher = () => {
-  const [keyword, setKeyword] = useContext(cartContext)
+  const {keyword, setKeyword, optionSelected} = useContext(cartContext);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -11,13 +11,16 @@ const Searcher = () => {
   const handleChange = (evt) => {
     setKeyword(evt.target.value);
   };
-  <form onSubmit={handleSubmit}>
+  return(
+    <form onSubmit={handleSubmit}>
     <input
       onChange={handleChange}
-      placeholder="Search a character"
+      placeholder={optionSelected}
       type="text"
       value={keyword}
     />
-  </form>;
+  </form>
+  )
+
 };
 export default Searcher;

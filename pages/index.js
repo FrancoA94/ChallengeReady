@@ -2,6 +2,7 @@ import CharacterQuery from "../characters";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
 import NavBar from "../navBar/NavBar";
+import Searcher from "../characters/searcher";
 
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
         <Link href="/favorites">Favorites</Link>
       </h2>
       <NavBar/>
+      <Searcher/>
       <CharacterQuery />
       <footer></footer>
     </div>
