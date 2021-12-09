@@ -18,8 +18,8 @@ export default function Detail() {
       <h1>Datail page of:</h1>
  
       {data &&
-        data.charactersByIds.map((character) => (
-          <DetailComponent characters={character} />
+        data.charactersByIds.map((character, index) => (
+          <DetailComponent characters={character} key={index} />
         ))}
       <Link href="/">
         <a>Volver a la Home</a>
