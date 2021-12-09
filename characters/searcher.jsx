@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { cartContext } from "../context/Fav";
 
 const Searcher = () => {
-  const [keyword, setKeyword] = useState("");
+  const [keyword, setKeyword] = useContext(cartContext)
 
   const handleSubmit = (evt) => {
     evt.preventDefault();

@@ -1,9 +1,14 @@
 import { createContext, useState } from "react";
 
 export const cartContext = createContext();
+const NavOptions = ["CHARACTERS", "LOCATIONS", "EPISODES"];
 
 export const CartProvider = ({ children }) => {
-  const [listFav, setListFav] = useState([])
+  const [listFav, setListFav] = useState([]);
+  const [optionSelected, setOptionSelected] = useState(NavOptions[0]);
+  const [keyword, setKeyword] = useState("");
+  
+
 
   // localStorage.setItem('listFav', JSON.stringify(listFav))
   // var guardado = JSON.parse(localStorage.getItem('listFav'))
@@ -17,7 +22,6 @@ export const CartProvider = ({ children }) => {
   //   }
   // };
 
-
   const HandlerFavorite = (id) => {
     if (listFav.includes(id)) {
       const NewFavorite = listFav.filter((item) => item !== id);
@@ -28,7 +32,7 @@ export const CartProvider = ({ children }) => {
   };
 
   return (
-    <cartContext.Provider value={{ listFav, HandlerFavorite }}>
+    <cartContext.Provider value={{ listFav, HandlerFavorite, optionSelected, setOptionSelected, keyword, setKeyword }}>
       {children}
     </cartContext.Provider>
   );

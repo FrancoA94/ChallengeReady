@@ -9,7 +9,8 @@ const CharacterQuery = () => {
   const [keyword, setKeyword] = useState("");
   const [page, setPage] = useState(1);
 
-  const { listFav, HandlerFavorite } = useContext(cartContext);
+  const { listFav, HandlerFavorite, optionSelected } = useContext(cartContext);
+
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -33,11 +34,12 @@ const CharacterQuery = () => {
       <form onSubmit={handleSubmit}>
         <input
           onChange={handleChange}
-          placeholder="Search a character"
+          placeholder={optionSelected}
           type="text"
           value={keyword}
         />
       </form>
+  
       <div className={styles.container}>
         <main className={styles.main}>
           <div className={styles.grid}>
