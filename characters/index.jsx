@@ -5,21 +5,10 @@ import { GET_CHARACTERS } from "./querys";
 import { cartContext } from "../context/Fav";
 import styles from "../styles/Home.module.css";
 
-
 const CharacterQuery = () => {
-  // const [keyword, setKeyword] = useState("");
   const [page, setPage] = useState(1);
 
   const { listFav, HandlerFavorite, optionSelected, keyword } = useContext(cartContext);
-
-
-  // const handleSubmit = (evt) => {
-  //   evt.preventDefault();
-  // };
-
-  // const handleChange = (evt) => {
-  //   setKeyword(evt.target.value);
-  // };
 
   const { loading, error, data } = useQuery(
     GET_CHARACTERS(page, keyword.length > 2 ? keyword : "")
@@ -32,15 +21,6 @@ const CharacterQuery = () => {
   console.log("Lista", listFav);
   return (
     <div>
-      {/* <form onSubmit={handleSubmit}>
-        <input
-          onChange={handleChange}
-          placeholder={optionSelected}
-          type="text"
-          value={keyword}
-        />
-      </form>
-   */}
       <div className={styles.container}>
         <main className={styles.main}>
           <div className={styles.grid}>
