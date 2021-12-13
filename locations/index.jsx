@@ -1,22 +1,21 @@
 import { useContext, useState } from "react";
 import { useQuery } from "@apollo/client";
 import CardComponent from "../components/cardComponent";
-import { GET_CHARACTERS } from "./querys";
 import { cartContext } from "../context/Fav";
 import styles from "../styles/Home.module.css";
+import { GET_LOCATIONS } from "./querys";
 
-const CharacterQuery = () => {
+const LocationQuery = () => {
   const [page, setPage] = useState(1);
 
-  const { listFav, HandlerFavorite, optionSelected, keyword } = useContext(cartContext);
-
+  const { HandlerFavorite, keyword } = useContext(cartContext);
 
   const { loading, error, data } = useQuery(
-    GET_CHARACTERS(page, keyword.length > 2 ? keyword : "")
+    GET_LOCATIONS(page, keyword.length > 2 ? keyword : "")
   );
 
-  const handlerNextPage = () => setPage(data.characters.info.next);
-  const handlerPrevPage = () => setPage(data.characters.info.prev);
+  const handlerNextPage = () => setPage(data.locations.info.next);
+  const handlerPrevPage = () => setPage(data.locations.info.prev);
   if (loading) return <p>Loading</p>;
   if (error) return <p>Error</p>;
 
@@ -26,9 +25,9 @@ const CharacterQuery = () => {
         <main className={styles.main}>
           <div className={styles.grid}>
             {data &&
-              data.characters.results.map((character, index) => (
+              data.locations.results.map((location, index) => (
                 <CardComponent
-                  characters={character}
+                  characters={location}
                   HandlerFavorite={HandlerFavorite}
                   key={index}
                 />
@@ -43,4 +42,4 @@ const CharacterQuery = () => {
   );
 };
 
-export default CharacterQuery;
+export default LocationQuery;

@@ -2,25 +2,19 @@ import { useContext } from "react";
 import { cartContext } from "../context/Fav";
 
 const Searcher = () => {
-  const {keyword, setKeyword, optionSelected} = useContext(cartContext);
-
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
-  };
+  const { keyword, setKeyword, optionSelected } = useContext(cartContext);
 
   const handleChange = (evt) => {
     setKeyword(evt.target.value);
   };
-  return(
-    <form onSubmit={handleSubmit}>
+
+  return (
     <input
       onChange={handleChange}
       placeholder={optionSelected}
       type="text"
       value={keyword}
     />
-  </form>
-  )
-
+  );
 };
 export default Searcher;

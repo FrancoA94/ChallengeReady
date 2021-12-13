@@ -11,4 +11,4 @@ export const CHARACTERS_ID = (id) => {
     }
   }
 `;
-};
+}; 

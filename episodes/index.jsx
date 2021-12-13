@@ -1,22 +1,21 @@
 import { useContext, useState } from "react";
 import { useQuery } from "@apollo/client";
-import CardComponent from "../components/cardComponent";
-import { GET_CHARACTERS } from "./querys";
 import { cartContext } from "../context/Fav";
 import styles from "../styles/Home.module.css";
+import { GET_EPISODES } from "./querys";
+import CardEpisode from "./cardEpisodes";
 
-const CharacterQuery = () => {
+const EpisodeQuery = () => {
   const [page, setPage] = useState(1);
 
-  const { listFav, HandlerFavorite, optionSelected, keyword } = useContext(cartContext);
-
+  const { listFav, HandlerFavorite, keyword } = useContext(cartContext);
 
   const { loading, error, data } = useQuery(
-    GET_CHARACTERS(page, keyword.length > 2 ? keyword : "")
+    GET_EPISODES(page, keyword.length > 2 ? keyword : "")
   );
 
-  const handlerNextPage = () => setPage(data.characters.info.next);
-  const handlerPrevPage = () => setPage(data.characters.info.prev);
+  const handlerNextPage = () => setPage(data.episodes.next);
+  const handlerPrevPage = () => setPage(data.episodes.prev);
   if (loading) return <p>Loading</p>;
   if (error) return <p>Error</p>;
 
@@ -26,9 +25,9 @@ const CharacterQuery = () => {
         <main className={styles.main}>
           <div className={styles.grid}>
             {data &&
-              data.characters.results.map((character, index) => (
-                <CardComponent
-                  characters={character}
+              data.episodes.results.map((episode, index) => (
+                <CardEpisode
+                  episodes={episode}
                   HandlerFavorite={HandlerFavorite}
                   key={index}
                 />
@@ -43,4 +42,4 @@ const CharacterQuery = () => {
   );
 };
 
-export default CharacterQuery;
+export default EpisodeQuery;
