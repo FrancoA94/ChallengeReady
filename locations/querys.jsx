@@ -1,15 +1,14 @@
 import { gql } from "@apollo/client";
 
-export const GET_LOCATIONS = () => {
+export const GET_LOCATIONS = (page, search) => {
   return gql`
-  query {
-    locations(page: 2){
+  query{
+    locations(page: ${page}, filter: {name: "${search}"}){
       results{
-        name
         dimension
-        id
+        name
+      }
       }
     }
-  }
   `;
 };

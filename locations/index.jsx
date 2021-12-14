@@ -11,11 +11,11 @@ const LocationQuery = () => {
   const { HandlerFavorite, keyword } = useContext(cartContext);
 
   const { loading, error, data } = useQuery(
-    GET_LOCATIONS(page, keyword.length > 2 ? keyword : "")
+    GET_LOCATIONS(page, keyword.length >2? keyword : "")
   );
 
-  const handlerNextPage = () => setPage(data.locations.info.next);
-  const handlerPrevPage = () => setPage(data.locations.info.prev);
+  const handlerNextPage = () => setPage(page + 1);
+  const handlerPrevPage = () => setPage(page - 1);
   if (loading) return <p>Loading</p>;
   if (error) return <p>Error</p>;
 

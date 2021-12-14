@@ -19,3 +19,4 @@ export const GET_CHARACTERS = (page, search) => {
   }
 `;
 };
+

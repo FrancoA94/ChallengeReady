@@ -14,8 +14,8 @@ const EpisodeQuery = () => {
     GET_EPISODES(page, keyword.length > 2 ? keyword : "")
   );
 
-  const handlerNextPage = () => setPage(data.episodes.next);
-  const handlerPrevPage = () => setPage(data.episodes.prev);
+  const handlerNextPage = () => setPage(page + 1);
+  const handlerPrevPage = () => setPage(page - 1);
   if (loading) return <p>Loading</p>;
   if (error) return <p>Error</p>;
 
