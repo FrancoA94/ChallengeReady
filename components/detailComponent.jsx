@@ -4,7 +4,7 @@ import { cartContext } from "../context/Fav";
 const DetailComponent = ({
   characters,
   episodes,
-  location,
+  locations,
   optionSelected,
 }) => {
   const { optionSelected } = useContext(cartContext);
@@ -17,7 +17,7 @@ const DetailComponent = ({
         <h4>Gender: {episodes.air_date}</h4>
       </a>
     );
-  }
+  } 
   if (optionSelected === "CHARACTERS") {
     return (
       <a className={"card"}>
@@ -27,12 +27,13 @@ const DetailComponent = ({
         <h4>Gender: {characters.gender}</h4>
       </a>
     );
-  } else {
+  } if(optionSelected === "LOCATIONS") {
     return (
       <a className={"card"}>
-        <h2>{location.name}</h2>
-        <h3>Dimension: {location.dimension}</h3>
-        <h4>Created: {location.created}</h4>
+        <h1>{optionSelected}</h1>
+        <h2>{locations.name}</h2>
+        <h3>Dimension: {locations.dimension}</h3>
+        <h4>Created: {locations.created}</h4>
       </a>
     );
   }

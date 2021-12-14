@@ -7,6 +7,7 @@ export const GET_LOCATIONS = (page, search) => {
       results{
         dimension
         name
+        id
       }
       }
     }

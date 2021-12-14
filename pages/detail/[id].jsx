@@ -43,20 +43,19 @@ export default function Detail() {
         </Link>
       </div>
     );
-  } else {
-    const {data} = useQuery(LOCATIONS_ID(ID))
+  } if (optionSelected === "LOCATIONS") {
+    const { loading, data, error } = useQuery(LOCATIONS_ID(ID));
     return (
       <div aling="center">
         <h1>Datail page of:</h1>
         {data &&
           data.locationsByIds.map((location, index) => (
-            <DetailComponent location={location} key={index} />
+            <DetailComponent locations={location} key={index} />
           ))}
         <Link href="/">
           <a>Volver a la Home</a>
         </Link>
       </div>
     );
-
   }
 }
