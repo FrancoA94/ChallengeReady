@@ -7,15 +7,19 @@ import { cartContext } from "../context/Fav";
 import EpisodeQuery from "../episodes";
 import LocationQuery from "../locations";
 import Searcher from "../header/searcher";
+import { H1 } from "../components/StyledTittle";
+import { StyledButton } from "../components/StyledLink";
 
 export default function Home() {
   const { optionSelected } = useContext(cartContext);
   console.log("optionSelected", optionSelected);
   return (
     <div>
-      <h1 className={styles.title}>Welcome to galery of Ricky and Morty!</h1>
+      <H1 className={styles.title}>Welcome to galery of Ricky and Morty!</H1>
       <h2>
-        <Link href="/favorites">Favorites</Link>
+        <Link href="/favorites">
+          <StyledButton>Favorites</StyledButton>
+          </Link>
       </h2>
       <NavBar />
       <Searcher/>

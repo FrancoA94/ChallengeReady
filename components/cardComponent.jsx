@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
-
+import { Button } from "./Button";
+import { StyledButton, StyledLink } from "./StyledLink";
 
 const CardComponent = ({ characters, HandlerFavorite }) => {
   const [visible, setVisible] = useState(true);
@@ -9,18 +10,18 @@ const CardComponent = ({ characters, HandlerFavorite }) => {
     <div className={"card"}>
       <img src={characters.image} style={{ width: "100%" }} />
       <Link href="/detail/[id]" as={`/detail/${characters.id}`}>
-        Mas detalles
+        <StyledButton>Más detalles</StyledButton>
       </Link>
       <h2>{characters.name}</h2>
       <p>{characters.species}</p>
-      <button
+      <Button
         onClick={() => {
           HandlerFavorite(characters);
           setVisible(!visible);
         }}
       >
         {visible ? "Agregar a favoritos" : "Eliminar de favoritos"}
-      </button>
+      </Button>
     </div>
   );
 };

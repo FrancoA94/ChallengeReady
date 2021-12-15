@@ -4,6 +4,7 @@ import CardComponent from "../components/cardComponent";
 import { GET_CHARACTERS } from "./querys";
 import { cartContext } from "../context/Fav";
 import styles from "../styles/Home.module.css";
+import { Button, ButtonPage } from "../components/Button";
 
 const CharacterQuery = () => {
   const [page, setPage] = useState(1);
@@ -37,8 +38,8 @@ const CharacterQuery = () => {
         </main>
       </div>
       <h1>Page {page}</h1>
-      <button onClick={handlerPrevPage}>Previous</button>
-      <button onClick={handlerNextPage}>Next Page</button>
+      <ButtonPage onClick={handlerPrevPage}>Previous Page</ButtonPage>
+      <ButtonPage onClick={handlerNextPage}>Next Page</ButtonPage>
     </div>
   );
 };

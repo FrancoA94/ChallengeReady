@@ -7,6 +7,7 @@ import { useContext } from "react";
 import { cartContext } from "../../context/Fav";
 import { EPISODES_ID } from "../../episodes/episodesById";
 import { LOCATIONS_ID } from "../../locations/locationsById";
+import { StyledButton } from "../../components/StyledLink";
 
 export default function Detail() {
   const router = useRouter();
@@ -24,7 +25,7 @@ export default function Detail() {
             <DetailComponent characters={character} key={index} />
           ))}
         <Link href="/">
-          <a>Volver a la Home</a>
+          <StyledButton>Volver a la Home</StyledButton>
         </Link>
       </div>
     );
@@ -33,7 +34,7 @@ export default function Detail() {
     const { loading, data, error } = useQuery(EPISODES_ID(ID));
     return (
       <div aling="center">
-        <h1>Datail page of:</h1>
+        <H1>Datail page of:</H1>
         {data &&
           data.episodesByIds.map((episode, index) => (
             <DetailComponent episodes={episode} key={index} />
@@ -53,7 +54,7 @@ export default function Detail() {
             <DetailComponent locations={location} key={index} />
           ))}
         <Link href="/">
-          <a>Volver a la Home</a>
+          <StyledButton>Volver a la Home</StyledButton>
         </Link>
       </div>
     );

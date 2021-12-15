@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useContext } from "react";
 import { cartContext } from "../context/Fav";
 import styles from "../styles/Home.module.css";
+import {StyledButton} from '../components/StyledLink'
 
 const Favorite = () => {
   const { listFav, HandlerFavorite } = useContext(cartContext);
@@ -10,7 +11,7 @@ const Favorite = () => {
     <div>
       <h1>Personajes Favoritos</h1>
       <Link href="/">
-        <a>Volver a la Home</a>
+        <StyledButton>Volver a la Home</StyledButton>
       </Link>
       <a className={"card"}>
         {listFav.map((item) => {
