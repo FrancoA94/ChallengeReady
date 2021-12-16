@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { cartContext } from "../context/Fav";
+import { CardDetail } from "./DetailCard";
 
 const DetailComponent = ({
   characters,
@@ -11,30 +12,30 @@ const DetailComponent = ({
 
   if (optionSelected === "EPISODES") {
     return (
-      <a className={"card"}>
+      <CardDetail>
         <h2>{episodes.name}</h2>
         <h3>Status: {episodes.id}</h3>
         <h4>Gender: {episodes.air_date}</h4>
-      </a>
+      </CardDetail>
     );
   } 
   if (optionSelected === "CHARACTERS") {
     return (
-      <a className={"card"}>
+      <CardDetail>
         <h2>{characters.name}</h2>
-        <img src={characters.image} style={{ width: "30%" }} />
+        <img src={characters.image} style={{ width: "100%" }} />
         <h3>Status: {characters.status}</h3>
         <h4>Gender: {characters.gender}</h4>
-      </a>
+      </CardDetail>
     );
   } if(optionSelected === "LOCATIONS") {
     return (
-      <a className={"card"}>
+      <CardDetail>
         <h1>{optionSelected}</h1>
         <h2>{locations.name}</h2>
         <h3>Dimension: {locations.dimension}</h3>
         <h4>Created: {locations.created}</h4>
-      </a>
+      </CardDetail>
     );
   }
 };

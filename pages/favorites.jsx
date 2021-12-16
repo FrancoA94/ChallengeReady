@@ -2,13 +2,14 @@ import Link from "next/link";
 import { useContext } from "react";
 import { cartContext } from "../context/Fav";
 import styles from "../styles/Home.module.css";
-import {StyledButton} from '../components/StyledLink'
+import { StyledButton } from "../components/StyledLink";
+import { CardWrapper } from "../components/StyledCard";
 
 const Favorite = () => {
   const { listFav, HandlerFavorite } = useContext(cartContext);
- 
+
   return (
-    <div>
+    <CardWrapper>
       <h1>Personajes Favoritos</h1>
       <Link href="/">
         <StyledButton>Volver a la Home</StyledButton>
@@ -27,7 +28,7 @@ const Favorite = () => {
           );
         })}
       </a>
-    </div>
+    </CardWrapper>
   );
 };
 

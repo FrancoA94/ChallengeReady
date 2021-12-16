@@ -8,6 +8,7 @@ import { cartContext } from "../../context/Fav";
 import { EPISODES_ID } from "../../episodes/episodesById";
 import { LOCATIONS_ID } from "../../locations/locationsById";
 import { StyledButton } from "../../components/StyledLink";
+import {H1} from '../../components/StyledTittle';
 
 export default function Detail() {
   const router = useRouter();
@@ -18,7 +19,7 @@ export default function Detail() {
     const { data } = useQuery(CHARACTERS_ID(ID));
     return (
       <div aling="center">
-        <h1>Datail page of:</h1>
+        <H1>Datail page of:</H1>
 
         {data &&
           data.charactersByIds.map((character, index) => (

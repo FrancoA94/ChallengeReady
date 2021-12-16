@@ -5,6 +5,8 @@ import { GET_CHARACTERS } from "./querys";
 import { cartContext } from "../context/Fav";
 import styles from "../styles/Home.module.css";
 import { Button, ButtonPage } from "../components/Button";
+import Loading from "../components/LoadingComponent";
+import {H1} from '../components/StyledTittle'
 
 const CharacterQuery = () => {
   const [page, setPage] = useState(1);
@@ -18,7 +20,7 @@ const CharacterQuery = () => {
 
   const handlerNextPage = () => setPage(data.characters.info.next);
   const handlerPrevPage = () => setPage(data.characters.info.prev);
-  if (loading) return <p>Loading</p>;
+  if (loading) return <Loading/>
   if (error) return <p>Error</p>;
 
   return (
@@ -37,9 +39,9 @@ const CharacterQuery = () => {
           </div>
         </main>
       </div>
-      <h1>Page {page}</h1>
-      <ButtonPage onClick={handlerPrevPage}>Previous Page</ButtonPage>
-      <ButtonPage onClick={handlerNextPage}>Next Page</ButtonPage>
+      <H1>Page {page}</H1>
+      <Button onClick={handlerPrevPage}>Previous Page</Button>
+      <Button onClick={handlerNextPage}>Next Page</Button>
     </div>
   );
 };
