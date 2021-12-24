@@ -1,11 +1,11 @@
 import { useContext, useState } from "react";
 import { useQuery } from "@apollo/client";
-import { cartContext } from "../context/Fav";
-import { GET_EPISODES } from "./querys";
-import CardComponent from "../components/cardComponent";
-import Loading from "../components/LoadingComponent";
-import { Button } from "../components/Button";
-import { H1 } from "../components/StyledTittle";
+import { cartContext } from "../../context/Fav";
+import Loading from "../../components/LoadingComponent";
+import { Button } from "../../components/Button";
+import { H1 } from "../../components/StyledTittle";
+import { GET_EPISODES } from "../../apollo/querysEpisodes/querys";
+import CardComponent from "../../components/cardComponent";
 
 const EpisodeQuery = () => {
 

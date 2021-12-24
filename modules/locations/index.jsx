@@ -1,11 +1,11 @@
 import { useContext, useState } from "react";
 import { useQuery } from "@apollo/client";
-import CardComponent from "../components/cardComponent";
-import { cartContext } from "../context/Fav";
-import { GET_LOCATIONS } from "./querys";
-import Loading from "../components/LoadingComponent";
-import { Button } from "../components/Button";
-import { H1 } from "../components/StyledTittle";
+import { cartContext } from "../../context/Fav";
+import Loading from "../../components/LoadingComponent";
+import { Button } from "../../components/Button";
+import { H1 } from "../../components/StyledTittle";
+import { GET_LOCATIONS } from "../../apollo/querysLocations/querys";
+import CardComponent from "../../components/cardComponent";
 
 const LocationQuery = () => {
   const [page, setPage] = useState(1);

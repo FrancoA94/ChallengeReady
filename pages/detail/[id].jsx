@@ -1,14 +1,14 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useQuery } from "@apollo/client";
-import { CHARACTERS_ID } from "../../characters/charactersById";
 import DetailComponent from "../../components/detailComponent";
 import { useContext } from "react";
 import { cartContext } from "../../context/Fav";
-import { EPISODES_ID } from "../../episodes/episodesById";
-import { LOCATIONS_ID } from "../../locations/locationsById";
+import { EPISODES_ID } from "../../apollo/querysEpisodes/episodesById";
 import { StyledButton } from "../../components/StyledLink";
 import {H1} from '../../components/StyledTittle';
+import { CHARACTERS_ID } from "../../apollo/querysCharacters/charactersById";
+import { LOCATIONS_ID } from "../../apollo/querysLocations/locationsById";
 
 export default function Detail() {
   const router = useRouter();
