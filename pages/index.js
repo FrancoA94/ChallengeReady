@@ -1,5 +1,4 @@
 import CharacterQuery from "../characters";
-import styles from "../styles/Home.module.css";
 import Link from "next/link";
 import NavBar from "../navBar/NavBar";
 import { useContext } from "react";
@@ -15,7 +14,7 @@ export default function Home() {
   console.log("optionSelected", optionSelected);
   return (
     <div>
-      <H1 className={styles.title}>Welcome to galery of Ricky and Morty!</H1>
+      <H1>Welcome to galery of Ricky and Morty!</H1>
       <h2>
         <Link href="/favorites">
           <StyledButton>Favorites</StyledButton>

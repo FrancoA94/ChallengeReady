@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { cartContext } from "../context/Fav";
 
 const Searcher = () => {
-  const { keyword, setKeyword, optionSelected } = useContext(cartContext);
+  const { keyword, setKeyword, optionSelected, page, setPage } = useContext(cartContext);
 
   const handleChange = (evt) => {
     setKeyword(evt.target.value);

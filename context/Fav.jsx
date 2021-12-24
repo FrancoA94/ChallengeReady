@@ -7,6 +7,7 @@ export const CartProvider = ({ children }) => {
   const [listFav, setListFav] = useState([]);
   const [optionSelected, setOptionSelected] = useState(NavOptions[0]);
   const [keyword, setKeyword] = useState("");
+  const [page, setPage] = useState(1)
   
 
 
@@ -32,7 +33,7 @@ export const CartProvider = ({ children }) => {
   };
 
   return (
-    <cartContext.Provider value={{ listFav, HandlerFavorite, optionSelected, setOptionSelected, keyword, setKeyword }}>
+    <cartContext.Provider value={{ listFav, HandlerFavorite, optionSelected, setOptionSelected, keyword, setKeyword, page, setPage }}>
       {children}
     </cartContext.Provider>
   );

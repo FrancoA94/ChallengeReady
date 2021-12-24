@@ -2,7 +2,6 @@ import { useContext, useState } from "react";
 import { useQuery } from "@apollo/client";
 import CardComponent from "../components/cardComponent";
 import { cartContext } from "../context/Fav";
-import styles from "../styles/Home.module.css";
 import { GET_LOCATIONS } from "./querys";
 import Loading from "../components/LoadingComponent";
 import { Button } from "../components/Button";
@@ -24,9 +23,9 @@ const LocationQuery = () => {
 
   return (
     <div>
-      <div className={styles.container}>
-        <main className={styles.main}>
-          <div className={styles.grid}>
+      <div>
+        <main>
+          <div>
             {data &&
               data.locations.results.map((location, index) => (
                 <CardComponent
@@ -39,7 +38,7 @@ const LocationQuery = () => {
         </main>
       </div>
       <H1>Page {page}</H1>
-      <Button onClick={handlerPrevPage}>Previous Page</Button>
+      <Button disabled={page===1} onClick={handlerPrevPage}>Previous Page</Button>
       <Button onClick={handlerNextPage}>Next Page</Button>
     </div>
   );

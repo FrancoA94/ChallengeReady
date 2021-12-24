@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext} from "react";
 import { cartContext } from "../context/Fav";
 
 const NavOptions = ["CHARACTERS", "LOCATIONS", "EPISODES"];
