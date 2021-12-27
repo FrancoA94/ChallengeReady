@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-export const GET_CHARACTERS = (page, search) => {
+export const GET_CHARACTERS = (page: number, search: string) => {
   return gql`
   query {
     characters(page:${page}, filter: {name: "${search}"}) {

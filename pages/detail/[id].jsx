@@ -26,7 +26,7 @@ export default function Detail() {
             <DetailComponent characters={character} key={index} />
           ))}
         <Link href="/">
-          <StyledButton>Volver a la Home</StyledButton>
+          <StyledButton>Go back to Home</StyledButton>
         </Link>
       </div>
     );

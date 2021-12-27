@@ -11,7 +11,7 @@ const Favorite = () => {
     <CardWrapper>
       <h1>Personajes Favoritos</h1>
       <Link href="/">
-        <StyledButton>Volver a la Home</StyledButton>
+        <StyledButton>Go back to Home</StyledButton>
       </Link>
       <a className={"card"}>
         {listFav.map((item) => {
