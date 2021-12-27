@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { useQuery } from "@apollo/client";
 import { cartContext } from "../../context/Fav";
-import { Button } from "../../components/Button";
-import Loading from "../../components/LoadingComponent";
+import { Button } from "../../components/button/Button";
 import { H1 } from "../../components/StyledTittle";
-import CardComponent from "../../components/cardComponent";
+import CardComponent from "../../components/cards/cardComponent"
 import { GET_CHARACTERS } from "../../apollo/querysCharacters/querys";
+import Loading from "../../components/styleComponents/LoadingComponent";
 
 const CharacterQuery = () => {
   const { listFav, HandlerFavorite, optionSelected, keyword, page, setPage } =

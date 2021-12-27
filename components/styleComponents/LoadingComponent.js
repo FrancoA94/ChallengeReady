@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { keyframes } from "styled-components";
-import { H1 } from "./StyledTittle";
+import { H1 } from "../StyledTittle";
+
 
 export const LoadingWrapper = styled.div`
   display: flex;

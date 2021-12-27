@@ -2,7 +2,8 @@ import Link from "next/link";
 import { useContext } from "react";
 import { cartContext } from "../context/Fav";
 import { StyledButton } from "../components/StyledLink";
-import { CardWrapper } from "../components/StyledCard";
+import { CardWrapper } from "../components/cards/StyledCard";
+
 
 const Favorite = () => {
   const { listFav, HandlerFavorite } = useContext(cartContext);

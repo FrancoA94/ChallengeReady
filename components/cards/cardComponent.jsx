@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
-import { Button } from "./Button";
-import { StyledButton } from "./StyledLink";
+import { Button } from "../button/Button";
+import { StyledButton } from "../StyledLink";
 import { CardWrapper } from "./StyledCard";
 
 const CardComponent = ({ characters, HandlerFavorite }) => {

@@ -1,6 +1,7 @@
 import { useContext } from "react";
-import { cartContext } from "../context/Fav";
-import { CardDetail } from "./DetailCard";
+import { cartContext } from "../../context/Fav";
+import { CardDetail } from "../cards/DetailCard";
+
 
 const DetailComponent = ({
   characters,
