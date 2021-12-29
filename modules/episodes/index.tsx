@@ -6,6 +6,7 @@ import { H1 } from "../../components/StyledTittle";
 import { GET_EPISODES } from "../../apollo/querysEpisodes/querys";
 import CardComponent from "../../components/cards/cardComponent";
 import Loading from "../../components/styleComponents/LoadingComponent";
+import { Container } from "../homePage/StyledHome";
 
 
 const EpisodeQuery = () => {
@@ -23,7 +24,7 @@ const EpisodeQuery = () => {
 
   return (
     <div>
-      <div>
+        <Container>
         <main>
             {data &&
               data.episodes.results.map((episode, index) => (
@@ -34,7 +35,7 @@ const EpisodeQuery = () => {
                 />
               ))}
         </main>
-      </div>
+        </Container>
       <H1>{page>1?"Page {page}" : "Page 1"}</H1>
       <Button disabled={page===1} onClick={handlerPrevPage}>Previous Page</Button>
       <Button onClick={handlerNextPage}>Next Page</Button>

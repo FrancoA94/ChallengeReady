@@ -6,6 +6,7 @@ import { H1 } from "../../components/StyledTittle";
 import { GET_LOCATIONS } from "../../apollo/querysLocations/querys";
 import CardComponent from "../../components/cards/cardComponent";
 import Loading from "../../components/styleComponents/LoadingComponent";
+import { Container } from "../homePage/StyledHome";
 
 
 const LocationQuery = () => {
@@ -24,7 +25,7 @@ const LocationQuery = () => {
 
   return (
     <div>
-      <div>
+      <Container>
         <main>
           <div>
             {data &&
@@ -37,7 +38,7 @@ const LocationQuery = () => {
               ))}
           </div>
         </main>
-      </div>
+      </Container>
       <H1>Page {page}</H1>
       <Button disabled={page===1} onClick={handlerPrevPage}>Previous Page</Button>
       <Button onClick={handlerNextPage}>Next Page</Button>

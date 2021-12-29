@@ -1,12 +1,12 @@
-import { useContext} from "react";
+import { useContext } from "react";
 import { cartContext } from "../context/Fav";
 
 const NavOptions = ["CHARACTERS", "LOCATIONS", "EPISODES"];
 
 const NavBar = () => {
-  const {optionSelected, setOptionSelected} = useContext(cartContext)
+  const { optionSelected, setOptionSelected } = useContext(cartContext);
 
-  const handleCheck = (e) => {
+  const handleCheck = (e: any) => {
     setOptionSelected(e.target.value);
   };
 
