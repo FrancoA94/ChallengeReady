@@ -1,48 +1,36 @@
 import { useContext } from "react";
-import { useQuery } from "@apollo/client";
 import { cartContext } from "../../context/Fav";
-import { Button } from "../../components/button/Button";
-import { H1 } from "../../components/StyledTittle";
-import CardComponent from "../../components/cards/cardComponent"
-import { GET_CHARACTERS } from "../../apollo/querysCharacters/querys";
-import Loading from "../../components/styleComponents/LoadingComponent";
-import { Container } from "../homePage/StyledHome";
+import { Title, Loading, Button, Card } from "../../components";
+import { Container } from "../homePage/Home.styled";
+
+import { useGetCharacters } from "../../hooks/useGetCharacters";
 
 const CharacterQuery = () => {
-  const { listFav, HandlerFavorite, optionSelected, keyword, page, setPage } =
-    useContext(cartContext);
+  const { HandlerFavorite, page } = useContext(cartContext);
+  const { characters, loading, error, handlerNextPage, handlerPrevPage } =
+    useGetCharacters();
 
-  const { loading, error, data } = useQuery(
-    GET_CHARACTERS(page, keyword.length > 2 ? keyword : "")
-  );
-
-  const handlerNextPage = () => setPage(data.characters.info.next);
-  const handlerPrevPage = () => setPage(data.characters.info.prev);
   if (loading) return <Loading />;
   if (error) return <p>Error</p>;
 
   return (
-    <div>
+    <>
       <Container>
-        <main>
-          <div>
-            {data &&
-              data.characters.results.map((character, index) => (
-                <CardComponent
-                  characters={character}
-                  HandlerFavorite={HandlerFavorite}
-                  key={index}
-                />
-              ))}
-          </div>
-        </main>
-        </Container>
-      <H1>Page {page}</H1>
+        {characters &&
+          characters.map((character, index) => (
+            <Card
+              characters={character}
+              HandlerFavorite={HandlerFavorite}
+              key={index}
+            />
+          ))}
+      </Container>
+      <Title>Page {page}</Title>
       <Button disabled={page === 1} onClick={handlerPrevPage}>
         Previous Page
       </Button>
       <Button onClick={handlerNextPage}>Next Page</Button>
-    </div>
+    </>
   );
 };
 

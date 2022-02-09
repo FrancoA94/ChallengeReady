@@ -1,13 +1,9 @@
 import { useContext, useState } from "react";
 import { useQuery } from "@apollo/client";
 import { cartContext } from "../../context/Fav";
-import { Button } from "../../components/button/Button";
-import { H1 } from "../../components/StyledTittle";
+import { Title, Loading, Card, Button } from "../../components";
 import { GET_LOCATIONS } from "../../apollo/querysLocations/querys";
-import CardComponent from "../../components/cards/cardComponent";
-import Loading from "../../components/styleComponents/LoadingComponent";
-import { Container } from "../homePage/StyledHome";
-
+import { Container } from "../homePage/Home.styled";
 
 const LocationQuery = () => {
   const [page, setPage] = useState(1);
@@ -30,7 +26,7 @@ const LocationQuery = () => {
           <div>
             {data &&
               data.locations.results.map((location, index) => (
-                <CardComponent
+                <Card
                   characters={location}
                   HandlerFavorite={HandlerFavorite}
                   key={index}
@@ -39,8 +35,10 @@ const LocationQuery = () => {
           </div>
         </main>
       </Container>
-      <H1>Page {page}</H1>
-      <Button disabled={page===1} onClick={handlerPrevPage}>Previous Page</Button>
+      <Title>Page {page}</Title>
+      <Button disabled={page === 1} onClick={handlerPrevPage}>
+        Previous Page
+      </Button>
       <Button onClick={handlerNextPage}>Next Page</Button>
     </div>
   );

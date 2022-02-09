@@ -1,12 +1,10 @@
 import Link from "next/link";
 import { useContext } from "react";
 import { cartContext } from "../context/Fav";
-import { StyledButton } from "../components/StyledLink";
-import { CardWrapper } from "../components/cards/StyledCard";
-
+import { CardWrapper, StyledButton } from "../components";
 
 const Favorite = () => {
-  const { listFav, HandlerFavorite } = useContext(cartContext);
+  const { listFav } = useContext(cartContext);
 
   return (
     <CardWrapper>
@@ -14,19 +12,13 @@ const Favorite = () => {
       <Link href="/">
         <StyledButton>Go back to Home</StyledButton>
       </Link>
-      <a className={"card"}>
-        {listFav.map((item) => {
-          return (
-            <div>
-              <main>
-                <div>
-                  <img src={item.image} style={{ width: "100%" }} />
-                  <h2>{item.name}</h2>
-                </div>
-              </main>
-            </div>
-          );
-        })}
+      <a>
+        {listFav.map((item, index) => (
+          <div key={index}>
+            <img src={item.image} style={{ width: "100%" }} />
+            <h2>{item.name}</h2>
+          </div>
+        ))}
       </a>
     </CardWrapper>
   );

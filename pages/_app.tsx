@@ -1,10 +1,7 @@
-import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
+import { ApolloProvider } from "@apollo/client";
+import { client } from "../apollo";
 import { CartProvider } from "../context/Fav";
 
-const client = new ApolloClient({
-  uri: "https://rickandmortyapi.com/graphql",
-  cache: new InMemoryCache(),
-});
 
 function MyApp({ Component, pageProps }) {
   return (

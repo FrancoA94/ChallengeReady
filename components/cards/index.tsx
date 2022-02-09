@@ -1,8 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
-import { Button } from "../button/Button";
-import { StyledButton } from "../StyledLink";
-import { CardWrapper } from "./StyledCard";
+import { Button, StyledButton } from "../../components";
+import { CardWrapper } from "./Card.styled";
 
 const CardComponent = ({ characters, HandlerFavorite }) => {
   const [visible, setVisible] = useState(true);

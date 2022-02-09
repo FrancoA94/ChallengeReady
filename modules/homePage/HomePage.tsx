@@ -1,33 +1,30 @@
+import React, { useContext } from "react";
 import Link from "next/link";
-import { useContext } from "react";
-import NavBar from "../../navBar/NavBar";
 import { cartContext } from "../../context/Fav";
-import EpisodeQuery from "../episodes";
-import CharacterQuery from "../characters";
-import LocationQuery from "../locations";
-import { StyledButton } from "../../components/StyledLink";
-import { H1 } from "../../components/StyledTittle";
-import Searcher from "../../header/searcher";
-import { Title } from "./StyledHome";
+import { default as Episode } from "../episodes";
+import { default as Characters } from "../characters";
+import { default as Locations } from "../locations";
+import { TitleContainer } from "./Home.styled";
+import { NavBar, Searcher, StyledButton, Title } from "../../components";
 
 export default function HomePage() {
   const { optionSelected } = useContext(cartContext);
   return (
     <div>
-      <Title>
-        <H1>Welcome to galery of Ricky and Morty!</H1>
-      <h2>
-        <Link href="/favorites">
-          <StyledButton>Favorites</StyledButton>
-        </Link>
-      </h2>
-      <NavBar />
-      <Searcher />
-      </Title>
+      <TitleContainer>
+        <Title>Welcome to galery of Ricky and Morty!</Title>
+        <h2>
+          <Link href="/favorites">
+            <StyledButton>Favorites</StyledButton>
+          </Link>
+        </h2>
+        <NavBar />
+        <Searcher />
+      </TitleContainer>
       <div>
-        {optionSelected === "CHARACTERS" && <CharacterQuery />}
-        {optionSelected === "LOCATIONS" && <LocationQuery />}
-        {optionSelected === "EPISODES" && <EpisodeQuery />}
+        {optionSelected === "CHARACTERS" && <Characters />}
+        {optionSelected === "LOCATIONS" && <Locations />}
+        {optionSelected === "EPISODES" && <Episode />}
       </div>
     </div>
   );
