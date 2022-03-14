@@ -5,7 +5,6 @@ import { useContext } from "react";
 import { cartContext } from "../../context/Fav";
 import { EPISODES_ID } from "../../apollo/querysEpisodes/episodesById";
 import { StyledButton } from "../../components/StyledLink";
-import {H1} from '../../components/StyledTittle';
 import { CHARACTERS_ID } from "../../apollo/querysCharacters/charactersById";
 import { LOCATIONS_ID } from "../../apollo/querysLocations/locationsById";
 import DetailComponent from "../../components/styleComponents/detailComponent";
@@ -19,7 +18,7 @@ export default function Detail() {
     const { data } = useQuery(CHARACTERS_ID(ID));
     return (
       <div aling="center">
-        <H1>Datail page of:</H1>
+        <title>Datail page of:</title>
 
         {data &&
           data.charactersByIds.map((character, index) => (
@@ -35,7 +34,7 @@ export default function Detail() {
     const { loading, data, error } = useQuery(EPISODES_ID(ID));
     return (
       <div aling="center">
-        <H1>Datail page of:</H1>
+        <title>Datail page of:</title>
         {data &&
           data.episodesByIds.map((episode, index) => (
             <DetailComponent episodes={episode} key={index} />
@@ -45,11 +44,12 @@ export default function Detail() {
         </Link>
       </div>
     );
-  } if (optionSelected === "LOCATIONS") {
+  }
+  if (optionSelected === "LOCATIONS") {
     const { loading, data, error } = useQuery(LOCATIONS_ID(ID));
     return (
       <div aling="center">
-        <h1>Datail page of:</h1>
+       <title>Datail page of:</title>
         {data &&
           data.locationsByIds.map((location, index) => (
             <DetailComponent locations={location} key={index} />

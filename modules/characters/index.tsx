@@ -12,7 +12,7 @@ const CharacterQuery = () => {
 
   if (loading) return <Loading />;
   if (error) return <p>Error</p>;
-
+ 
   return (
     <>
       <Container>

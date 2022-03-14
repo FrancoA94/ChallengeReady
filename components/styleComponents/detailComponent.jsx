@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { cartContext } from "../../context/Fav";
-import { CardDetail } from "../cards/DetailCard";
+import { CardDetail } from "../cards/Card.styled";
 
 
 const DetailComponent = ({
